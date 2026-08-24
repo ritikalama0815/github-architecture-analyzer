@@ -1,0 +1,13 @@
+node_modules/
+dist/
+.angular/
+.tmp/
+uploads/
+*.log
+.env
+.env.local
+apps/api/prisma/*.db
+apps/api/prisma/*.db-journal
+coverage/
+.DS_Store
+Thumbs.db

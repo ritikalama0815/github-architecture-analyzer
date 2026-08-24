@@ -1,0 +1,35 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: archviz-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: archviz
+      POSTGRES_PASSWORD: archviz
+      POSTGRES_DB: archviz
+    ports:
+      - "5432:5432"
+    volumes:
+      - archviz_pg:/var/lib/postgresql/data
+
+  api:
+    build:
+      context: .
+      dockerfile: apps/api/Dockerfile
+    container_name: archviz-api
+    restart: unless-stopped
+    environment:
+      DATABASE_URL: postgresql://archviz:archviz@postgres:5432/archviz?schema=public
+      PORT: 3000
+      UPLOAD_DIR: /app/uploads
+      CORS_ORIGIN: http://localhost:4200
+    ports:
+      - "3000:3000"
+    volumes:
+      - archviz_uploads:/app/uploads
+    depends_on:
+      - postgres
+
+volumes:
+  archviz_pg:
+  archviz_uploads:

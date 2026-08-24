@@ -1,0 +1,113 @@
+@import '@angular/material/prebuilt-themes/azure-blue.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root,
+[data-theme='light'],
+[data-theme='dark'] {
+  --bg: transparent;
+  --bg-elevated: rgba(12, 8, 28, 0.72);
+  --bg-soft: rgba(255, 255, 255, 0.08);
+  --text: #ffffff;
+  --text-muted: rgba(255, 255, 255, 0.78);
+  --border: rgba(255, 255, 255, 0.2);
+  --accent: #e9d5ff;
+  --accent-soft: rgba(233, 213, 255, 0.2);
+  --danger: #fda4af;
+  --warn: #fde68a;
+  --graph-bg: rgba(5, 2, 15, 0.55);
+  --shadow: none;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  color: #ffffff;
+}
+
+body {
+  background: #05020f;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.mat-mdc-form-field {
+  width: 100%;
+}
+
+.panel {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(12px);
+  color: #ffffff;
+}
+
+.muted {
+  color: rgba(255, 255, 255, 0.78) !important;
+}
+
+.score-ring {
+  background: conic-gradient(var(--accent) calc(var(--score) * 1%), var(--bg-soft) 0);
+}
+
+/* Force Material text/icons light on the dark molten background */
+.mat-mdc-form-field .mdc-floating-label,
+.mat-mdc-form-field .mdc-floating-label--float-above,
+.mat-mdc-form-field .mat-mdc-form-field-label,
+.mat-mdc-input-element,
+.mat-mdc-select-value,
+.mat-mdc-select-placeholder,
+.mat-mdc-select-arrow,
+.mat-mdc-button,
+.mat-mdc-outlined-button,
+.mat-mdc-unelevated-button,
+.mat-mdc-icon-button,
+.mat-mdc-slide-toggle .mdc-label,
+.mat-icon,
+.mdc-button__label,
+.mdc-text-field__input::placeholder,
+input.mat-mdc-input-element::placeholder {
+  color: #ffffff !important;
+  caret-color: #ffffff !important;
+}
+
+.mat-mdc-form-field .mdc-notched-outline__leading,
+.mat-mdc-form-field .mdc-notched-outline__notch,
+.mat-mdc-form-field .mdc-notched-outline__trailing {
+  border-color: rgba(255, 255, 255, 0.35) !important;
+}
+
+.mat-mdc-outlined-button {
+  border-color: rgba(255, 255, 255, 0.4) !important;
+}
+
+.mat-mdc-progress-bar .mdc-linear-progress__buffer-bar {
+  background-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+.mat-mdc-progress-bar .mdc-linear-progress__bar-inner {
+  border-color: #ffffff !important;
+}
+
+.mat-mdc-select-panel {
+  background: #161225 !important;
+}
+
+.mat-mdc-option .mdc-list-item__primary-text {
+  color: #ffffff !important;
+}
+
+.mat-mdc-snack-bar-label {
+  color: #ffffff !important;
+}
