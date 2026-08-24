@@ -1,8 +1,7 @@
-# Archviz
+# Github architecture analyzer
 
-Interactive architecture analyzer for TypeScript / Angular projects.
 
-Upload a ZIP or paste a public GitHub URL → static import analysis (ts-morph) → interactive Cytoscape dependency graph → architecture health report (cycles, coupling, unused files).
+Upload a ZIP or paste a public GitHub URL → static import analysis (ts-morph) → interactive dependency graph → architecture health report (cycles, coupling, unused files).
 
 ## Stack
 
@@ -11,9 +10,7 @@ Upload a ZIP or paste a public GitHub URL → static import analysis (ts-morph) 
 | Frontend | Angular 19 (standalone), Signals, Angular Material, Tailwind, Cytoscape.js |
 | Backend | NestJS, ts-morph, Prisma |
 | Data | PostgreSQL (optional — in-memory fallback if DB is down) |
-| Deploy | Docker Compose |
 
-## Quick start
 
 ### Prerequisites
 
@@ -50,7 +47,7 @@ npm run dev:api
 npm run dev:web
 ```
 
-Or both:
+Or just this works too:
 
 ```bash
 npm run dev
@@ -60,8 +57,8 @@ Open [http://localhost:4200](http://localhost:4200).
 
 ## Try it
 
-1. Paste a public repo URL, e.g. `https://github.com/nestjs/nest` (large repos take longer), or a smaller Angular sample.
-2. Or upload a ZIP of a TypeScript project (without `node_modules`).
+1. Paste a public repo URL, (large repos take longer), or a smaller sample.
+2. Or upload a ZIP of a project (without `node_modules`).
 3. Explore the graph: drag, zoom, search, filter by kind, highlight circular edges.
 4. Click nodes for fan-in/out, dependents, and file metrics.
 5. Review the health score and issue list.
@@ -90,17 +87,14 @@ github-architecture/
 ## Features included
 
 - GitHub zipball ingest + ZIP upload
-- TypeScript AST import graph via ts-morph
-- Angular-oriented node kinds (component, service, module, guard, …)
-- Circular dependency detection + edge highlighting
+- Import graph via ts-morph
+- Circular dependency detection 
 - High-coupling / large-file / unused-file heuristics
 - Architecture health score
-- Interactive graph (fcose layout, search, filters, minimap, dark/light)
 - PNG export of the graph canvas
 
 ## Notes
 
-- Analysis is best on **TypeScript / Angular** codebases.
-- Very large monorepos are capped (~2500 source files) for responsiveness.
-- Set `GITHUB_TOKEN` in `.env` if you hit GitHub API rate limits.
-- Timeline / PDF reports are left as future enhancements.
+Still WIP
+
+Future additions may include compare two commits, support more tech stacks, more report, read the source code and analyze in depth, and progress % while scanning.
